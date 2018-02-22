@@ -27,8 +27,9 @@ Used Twitter Search API to fetch high trending tweets and store them in MongoDB 
 
 ---
 
-**To search for tweets with respect to search text**
-   _URL: /api/search/:searchtext_
+### 2. To search for tweets with respect to search text
+
+### URL: /api/search/:searchtext_
 
 **Resource Information**
 
@@ -49,7 +50,7 @@ Used Twitter Search API to fetch high trending tweets and store them in MongoDB 
 
 ---
 
-### To find high trending events with respect to some place id
+### 3. To find high trending events with respect to some place id
 
 ### URL: /api/filter/:field_
 
@@ -84,7 +85,7 @@ GET /api/filter/retweet_count?operator=gt&value=100&sortby%5B0%5D=user_name&sort
 
 ---
 
-### To download the created file.csv
+### 4. To download the created file.csv
 
 ### URL: /api/download_
 
