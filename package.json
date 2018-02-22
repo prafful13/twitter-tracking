@@ -1,0 +1,27 @@
+{
+  "name": "twitter-tracking",
+  "version": "1.0.0",
+  "description":
+    "API to track high-traffic events in INDIA and perform certain queries on them",
+  "main": "index.js",
+  "engines": {
+    "node": "8.1.1",
+    "npm": "5.0.3"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "Prafful Mehrotra",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "lodash": "^4.17.5",
+    "mongoose": "^5.0.6",
+    "nodemon": "^1.15.0",
+    "path-parser": "^3.0.1",
+    "twi": "^0.1.4",
+    "twit": "^2.2.9"
+  }
+}
