@@ -6,16 +6,22 @@ const mongoose = require("mongoose");
 const Tweet = mongoose.model("tweets");
 
 module.exports = (app, Twitter) => {
-  app.get("/api/hightrafficevents", (req, res) => {
-    Twitter.get("trends/place", { id: 23424977 }, (err, data, response) => {
-      // console.log(JSON.stringify(data));
-      res.send(data);
-    });
+  app.get("/api/hightrafficevents/:placeid", (req, res) => {
+    const p = new Path("/api/hightrafficevents/:placeid");
+    const match = p.test(req.path);
+
+    Twitter.get(
+      "trends/place",
+      { id: match.placeid },
+      (err, data, response) => {
+        // console.log(JSON.stringify(data));
+        res.send(data);
+      }
+    );
   });
 
   app.get("/api/search/:hashtag", (req, res) => {
     const p = new Path("/api/search/:hashtag");
-    // console.log(req);
     const match = p.test(req.path);
     if (match) {
       Twitter.get(
