@@ -2,11 +2,25 @@ const _ = require("lodash");
 const Path = require("path-parser");
 const { URL } = require("url");
 const mongoose = require("mongoose");
+const json2csv = require("json2csv");
+const fs = require("fs");
 
 const Tweet = mongoose.model("tweets");
 
+const fields = [];
+
 module.exports = (app, Twitter) => {
   app.get("/api/filter/:field", (req, res) => {
+    let flag = false;
+    if (req.query.hasOwnProperty("export")) {
+      let it = 0;
+      _.forEach(req.query.export, value => {
+        fields[it] = req.query.export[it];
+        it++;
+      });
+      flag = true;
+    }
+
     const p = new Path("/api/filter/:field");
     const match = p.test(req.path);
 
@@ -34,7 +48,6 @@ module.exports = (app, Twitter) => {
           let query = {};
           query[match.field] = {};
           query[match.field][mapOperator[req.query.operator]] = req.query.value;
-          // console.log(req.query, req.query.hasOwnProperty("sortby"));
 
           if (
             req.query.hasOwnProperty("sortby") &&
@@ -48,10 +61,13 @@ module.exports = (app, Twitter) => {
               sortquery[value] = req.query.order[itr];
               itr++;
             });
-            console.log(sortquery);
             await Tweet.find(query)
               .sort(sortquery)
               .exec((err, data) => {
+                if (flag == true) {
+                  let csv = json2csv.parse(data, { fields });
+                  fs.writeFile("./file.csv", csv);
+                }
                 return res.json({
                   data: data
                 });
@@ -60,6 +76,10 @@ module.exports = (app, Twitter) => {
             await Tweet.find(query)
               .sort("text")
               .exec((err, data) => {
+                if (flag == true) {
+                  const csv = json2csv(data, { fields });
+                  fs.writeFile("./file.csv", csv);
+                }
                 return res.json({
                   data: data
                 });
@@ -99,15 +119,18 @@ module.exports = (app, Twitter) => {
               sortquery[value] = req.query.order[itr];
               itr++;
             });
-            console.log(sortquery);
 
             if (req.query.operator == "startswith") {
               let query = {};
               query[match.field] = new RegExp("^" + req.query.value);
-              console.log(query);
+
               await Tweet.find(query)
                 .sort(sortquery)
                 .exec((err, data) => {
+                  if (flag == true) {
+                    const csv = json2csv(data, { fields });
+                    fs.writeFile("./file.csv", csv);
+                  }
                   return res.json({
                     data: data
                   });
@@ -115,10 +138,13 @@ module.exports = (app, Twitter) => {
             } else if (req.query.operator == "endswith") {
               let query = {};
               query[match.field] = new RegExp(req.query.value + "$");
-              console.log(query);
               await Tweet.find(query)
                 .sort(sortquery)
                 .exec((err, data) => {
+                  if (flag == true) {
+                    const csv = json2csv(data, { fields });
+                    fs.writeFile("./file.csv", csv);
+                  }
                   return res.json({
                     data: data
                   });
@@ -126,10 +152,13 @@ module.exports = (app, Twitter) => {
             } else if (req.query.operator == "contains") {
               let query = {};
               query[match.field] = new RegExp(req.query.value);
-              console.log(query);
               await Tweet.find(query)
                 .sort(sortquery)
                 .exec((err, data) => {
+                  if (flag == true) {
+                    const csv = json2csv(data, { fields });
+                    fs.writeFile("./file.csv", csv);
+                  }
                   return res.json({
                     data: data
                   });
@@ -137,10 +166,13 @@ module.exports = (app, Twitter) => {
             } else if (req.query.operator == "is") {
               let query = {};
               query[match.field] = req.query.value;
-              console.log(query);
               await Tweet.find(query)
                 .sort(sortquery)
                 .exec((err, data) => {
+                  if (flag == true) {
+                    const csv = json2csv(data, { fields });
+                    fs.writeFile("./file.csv", csv);
+                  }
                   return res.json({
                     data: data
                   });
@@ -150,8 +182,12 @@ module.exports = (app, Twitter) => {
             if (req.query.operator == "startswith") {
               let query = {};
               query[match.field] = new RegExp("^" + req.query.value);
-              console.log(query);
+
               await Tweet.find(query).exec((err, data) => {
+                if (flag == true) {
+                  const csv = json2csv(data, { fields });
+                  fs.writeFile("./file.csv", csv);
+                }
                 return res.json({
                   data: data
                 });
@@ -159,8 +195,12 @@ module.exports = (app, Twitter) => {
             } else if (req.query.operator == "endswith") {
               let query = {};
               query[match.field] = new RegExp(req.query.value + "$");
-              console.log(query);
+
               await Tweet.find(query).exec((err, data) => {
+                if (flag == true) {
+                  const csv = json2csv(data, { fields });
+                  fs.writeFile("./file.csv", csv);
+                }
                 return res.json({
                   data: data
                 });
@@ -168,8 +208,12 @@ module.exports = (app, Twitter) => {
             } else if (req.query.operator == "contains") {
               let query = {};
               query[match.field] = new RegExp(req.query.value);
-              console.log(query);
+
               await Tweet.find(query).exec((err, data) => {
+                if (flag == true) {
+                  const csv = json2csv(data, { fields });
+                  fs.writeFile("./file.csv", csv);
+                }
                 return res.json({
                   data: data
                 });
@@ -177,8 +221,12 @@ module.exports = (app, Twitter) => {
             } else if (req.query.operator == "is") {
               let query = {};
               query[match.field] = req.query.value;
-              console.log(query);
+
               await Tweet.find(query).exec((err, data) => {
+                if (flag == true) {
+                  const csv = json2csv(data, { fields });
+                  fs.writeFile("./file.csv", csv);
+                }
                 return res.json({
                   data: data
                 });

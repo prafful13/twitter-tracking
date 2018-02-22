@@ -22,7 +22,6 @@ module.exports = (app, Twitter) => {
         "search/tweets",
         { q: match.hashtag, count: 500 },
         (err, data, response) => {
-          console.log(data.statuses.length);
           _.forEach(data.statuses, async function(value) {
             var hashtags_intweet = [];
             _.forEach(value.entities.hashtags, hashtags => {

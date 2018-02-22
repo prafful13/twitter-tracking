@@ -1,8 +1,7 @@
 {
   "name": "twitter-tracking",
   "version": "1.0.0",
-  "description":
-    "API to track high-traffic events in INDIA and perform certain queries on them",
+  "description": "API to track high-traffic events in INDIA and perform certain queries on them",
   "main": "index.js",
   "engines": {
     "node": "8.1.1",
@@ -17,6 +16,7 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
+    "json2csv": "^4.0.0-alpha.0",
     "lodash": "^4.17.5",
     "mongoose": "^5.0.6",
     "nodemon": "^1.15.0",
