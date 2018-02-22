@@ -10,7 +10,7 @@ Used Twitter Search API to fetch high trending tweets and store them in MongoDB 
 **Resource Information**
 
 |||  
-|-------------:|:-------------|
+|-------------|-------------|
 |Response Type| `GET` |
 |Response Format|`JSON`|
 
