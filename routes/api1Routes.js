@@ -20,13 +20,13 @@ module.exports = (app, Twitter) => {
     );
   });
 
-  app.get("/api/search/:hashtag", (req, res) => {
-    const p = new Path("/api/search/:hashtag");
+  app.get("/api/search/:searchtext", (req, res) => {
+    const p = new Path("/api/search/:searchtext");
     const match = p.test(req.path);
     if (match) {
       Twitter.get(
         "search/tweets",
-        { q: match.hashtag, count: 500 },
+        { q: match.searchtext, count: 100 },
         (err, data, response) => {
           _.forEach(data.statuses, async function(value) {
             var hashtags_intweet = [];

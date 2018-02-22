@@ -10,7 +10,7 @@ const Tweet = mongoose.model("tweets");
 const fields = [];
 
 module.exports = (app, Twitter) => {
-  app.get("/download", function(req, res) {
+  app.get("/api/download", function(req, res) {
     var file = "./file.csv";
     res.download(file); // Set disposition and send it.
   });
