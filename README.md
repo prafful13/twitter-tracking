@@ -8,6 +8,7 @@ Used Twitter Search API to fetch high trending tweets and store them in MongoDB 
    _URL: /api/hightrafficevents/:placeid_
 
 **Resource Information**
+
 |||  
 |-------------:|:-------------|
 |Response Type| `GET` |
@@ -28,6 +29,7 @@ Used Twitter Search API to fetch high trending tweets and store them in MongoDB 
    _URL: /api/search/:searchtext_
 
 **Resource Information**
+
 |||  
 |-------------:|:-------------|
 |Response Type| `GET` |
@@ -48,6 +50,7 @@ Used Twitter Search API to fetch high trending tweets and store them in MongoDB 
    _URL: /api/filter/:field_
 
 **Resource Information**
+
 |||  
 |-------------:|:-------------|
 |Response Type| `GET` |
@@ -81,6 +84,7 @@ GET /api/filter/retweet_count?operator=gt&value=100&sortby%5B0%5D=user_name&sort
    _URL: /api/download_
 
 **Resource Information**
+
 |||  
 |-------------:|:-------------|
 |Response Type| `GET` |
