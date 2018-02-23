@@ -14,7 +14,6 @@ module.exports = (app, Twitter) => {
       "trends/place",
       { id: match.placeid },
       (err, data, response) => {
-        // console.log(JSON.stringify(data));
         res.send(data);
       }
     );
