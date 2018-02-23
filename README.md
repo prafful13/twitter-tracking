@@ -1,7 +1,8 @@
 # twitter-tracking
 
 Used Twitter Search API to fetch high trending tweets and store them in MongoDB store. Created various API endpoints to perform several search/sort queries on stored data.
-Project is live on: https://mysterious-tor-32167.herokuapp.com/api/hightrafficevents/23424848
+
+Project is live at: https://mysterious-tor-32167.herokuapp.com/api/hightrafficevents/23424848
 
 ## API Endpoints
 
