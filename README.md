@@ -10,10 +10,10 @@ Used Twitter Search API to fetch high trending tweets and store them in MongoDB 
 
 **Resource Information**
 
-|||  
-|-------------|-------------|
-|Response Type| `GET` |
-|Response Format|`JSON`|
+|                 |        |
+| --------------- | ------ |
+| Response Type   | `GET`  |
+| Response Format | `JSON` |
 
 **Path Variables**
 
@@ -33,10 +33,10 @@ Used Twitter Search API to fetch high trending tweets and store them in MongoDB 
 
 **Resource Information**
 
-|||  
-|-------------|-------------|
-|Response Type| `GET` |
-|Response Format|`JSON`|
+|                 |        |
+| --------------- | ------ |
+| Response Type   | `GET`  |
+| Response Format | `JSON` |
 
 **Path Variables**
 
@@ -56,10 +56,10 @@ Used Twitter Search API to fetch high trending tweets and store them in MongoDB 
 
 **Resource Information**
 
-|||  
-|-------------|-------------|
-|Response Type| `GET` |
-|Response Format|`JSON`|
+|                 |        |
+| --------------- | ------ |
+| Response Type   | `GET`  |
+| Response Format | `JSON` |
 
 **Path Variables**
 
@@ -71,7 +71,7 @@ Used Twitter Search API to fetch high trending tweets and store them in MongoDB 
 
 |   Name   |   Required   |                                Description                                | Default Value |                                                                                     Example                                                                                      |
 | :------: | :----------: | :-----------------------------------------------------------------------: | :-----------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| operator |   required   | operators to compare 'field' path variable with 'value' request parameter |               |                                                                               gt, gte, lt, lte, eq                                                                               |
+| operator |   required   | operators to compare 'field' path variable with 'value' request parameter |               |                                                             gt, gte, lt, lte, eq, startswith, endswith, contains, is                                                             |
 |  value   |   required   |                              value for query                              |               |                                                                          100 (in case of retweet_count)                                                                          |
 |  sortby  | not required |               different column names to sort the result by                |               | text, hashtags, created_at, id_str, user_mentioned_screen_name, user_mentioned_name, text_lang, retweet_count, favorite_count, user_name, user_screen_name, user_followers_count |
 |  order   | not required |        declare for each entry in sortby as ascending or descending        |               |                                                                  1, -1 (1 for ascending and -1 for descending)                                                                   |
@@ -91,10 +91,10 @@ GET /api/filter/retweet_count?operator=gt&value=100&sortby%5B0%5D=user_name&sort
 
 **Resource Information**
 
-|||  
-|-------------|-------------|
-|Response Type| `GET` |
-|Response Format|`JSON`|
+|                 |        |
+| --------------- | ------ |
+| Response Type   | `GET`  |
+| Response Format | `JSON` |
 
 **Example Request**
 
