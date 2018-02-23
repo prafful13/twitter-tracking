@@ -104,5 +104,28 @@ GET /api/filter/retweet_count?operator=gt&value=100&sortby%5B0%5D=user_name&sort
 
 ---
 
-Inline-style:
-![alt text](/screenshots/search.png "Logo Title Text 1")
+## Some sample api requests and their screenshots
+
+### URL: https://mysterious-tor-32167.herokuapp.com/api/search/Papon
+
+### To search for tweets with keyword Papon
+
+![alt text](/screenshots/search.png)
+
+### URL: https://mysterious-tor-32167.herokuapp.com/api/hightrafficevents/23424848
+
+### To search for high traffic events
+
+![alt text](/screenshots/hightrafficevents.png)
+
+### URL: https://mysterious-tor-32167.herokuapp.com/api/filter/retweet_count?operator=lte&value=200&sortby%5B0%5D=retweet_count&order%5B0%5D=-1
+
+### To search for tweets in db with retweet_count <= 200 and sort them in descending order of the count
+
+![alt text](/screenshots/filterbyretweetcount.png)
+
+### URL: https://mysterious-tor-32167.herokuapp.com/api/filter/text?operator=startswith&value=R&sortby%5B0%5D=user_name&sortby%5B1%5D=retweet_count&order%5B0%5D=-1&order%5B1%5D=-1&export%5B0%5D=user_name&export%5B1%5D=text&export%5B2%5D=hashtags&pgno=0&limit=5
+
+### To search for tweets in db text field starting with value R and sort the result by user_name and retweet_count (both descending). It also saves result in csv format which can be downloaded from /api/download endpoint.
+
+![alt text](/screenshots/filterbytextsearch.png)
