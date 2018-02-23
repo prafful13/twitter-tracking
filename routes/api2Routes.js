@@ -25,7 +25,7 @@ module.exports = (app, Twitter) => {
       });
       flag = true;
     }
-
+    console.log(flag);
     const p = new Path("/api/filter/:field");
     const match = p.test(req.path);
 
@@ -82,7 +82,7 @@ module.exports = (app, Twitter) => {
               .sort("text")
               .exec((err, data) => {
                 if (flag == true) {
-                  const csv = json2csv(data, { fields });
+                  let csv = json2csv.parse(data, { fields });
                   fs.writeFile("./file.csv", csv);
                 }
                 return res.json({
@@ -128,12 +128,12 @@ module.exports = (app, Twitter) => {
             if (req.query.operator == "startswith") {
               let query = {};
               query[match.field] = new RegExp("^" + req.query.value);
-
+              console.log(fields);
               await Tweet.find(query)
                 .sort(sortquery)
                 .exec((err, data) => {
                   if (flag == true) {
-                    const csv = json2csv(data, { fields });
+                    let csv = json2csv.parse(data, { fields });
                     fs.writeFile("./file.csv", csv);
                   }
                   return res.json({
@@ -147,7 +147,7 @@ module.exports = (app, Twitter) => {
                 .sort(sortquery)
                 .exec((err, data) => {
                   if (flag == true) {
-                    const csv = json2csv(data, { fields });
+                    let csv = json2csv.parse(data, { fields });
                     fs.writeFile("./file.csv", csv);
                   }
                   return res.json({
@@ -161,7 +161,7 @@ module.exports = (app, Twitter) => {
                 .sort(sortquery)
                 .exec((err, data) => {
                   if (flag == true) {
-                    const csv = json2csv(data, { fields });
+                    let csv = json2csv.parse(data, { fields });
                     fs.writeFile("./file.csv", csv);
                   }
                   return res.json({
@@ -175,7 +175,7 @@ module.exports = (app, Twitter) => {
                 .sort(sortquery)
                 .exec((err, data) => {
                   if (flag == true) {
-                    const csv = json2csv(data, { fields });
+                    let csv = json2csv.parse(data, { fields });
                     fs.writeFile("./file.csv", csv);
                   }
                   return res.json({
@@ -190,7 +190,7 @@ module.exports = (app, Twitter) => {
 
               await Tweet.find(query).exec((err, data) => {
                 if (flag == true) {
-                  const csv = json2csv(data, { fields });
+                  let csv = json2csv.parse(data, { fields });
                   fs.writeFile("./file.csv", csv);
                 }
                 return res.json({
@@ -203,7 +203,7 @@ module.exports = (app, Twitter) => {
 
               await Tweet.find(query).exec((err, data) => {
                 if (flag == true) {
-                  const csv = json2csv(data, { fields });
+                  let csv = json2csv.parse(data, { fields });
                   fs.writeFile("./file.csv", csv);
                 }
                 return res.json({
@@ -216,7 +216,7 @@ module.exports = (app, Twitter) => {
 
               await Tweet.find(query).exec((err, data) => {
                 if (flag == true) {
-                  const csv = json2csv(data, { fields });
+                  let csv = json2csv.parse(data, { fields });
                   fs.writeFile("./file.csv", csv);
                 }
                 return res.json({
@@ -229,7 +229,7 @@ module.exports = (app, Twitter) => {
 
               await Tweet.find(query).exec((err, data) => {
                 if (flag == true) {
-                  const csv = json2csv(data, { fields });
+                  let csv = json2csv.parse(data, { fields });
                   fs.writeFile("./file.csv", csv);
                 }
                 return res.json({
