@@ -1,7 +1,8 @@
 {
   "name": "twitter-tracking",
   "version": "1.0.0",
-  "description": "API to track high-traffic events in INDIA and perform certain queries on them",
+  "description":
+    "API to track high-traffic events and perform certain queries on them",
   "main": "index.js",
   "engines": {
     "node": "8.1.1",

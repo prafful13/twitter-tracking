@@ -14,7 +14,7 @@ Project is live at: https://mysterious-tor-32167.herokuapp.com/api/hightrafficev
 
 |                 |        |
 | --------------- | ------ |
-| Response Type   | `GET`  |
+| Request Method  | `GET`  |
 | Response Format | `JSON` |
 
 **Path Variables**
@@ -37,7 +37,7 @@ Project is live at: https://mysterious-tor-32167.herokuapp.com/api/hightrafficev
 
 |                 |        |
 | --------------- | ------ |
-| Response Type   | `GET`  |
+| Request Method  | `GET`  |
 | Response Format | `JSON` |
 
 **Path Variables**
@@ -60,7 +60,7 @@ Project is live at: https://mysterious-tor-32167.herokuapp.com/api/hightrafficev
 
 |                 |        |
 | --------------- | ------ |
-| Response Type   | `GET`  |
+| Request Method  | `GET`  |
 | Response Format | `JSON` |
 
 **Path Variables**
@@ -97,7 +97,7 @@ GET /api/filter/retweet_count?operator=gt&value=100&sortby%5B0%5D=user_name&sort
 
 |                 |        |
 | --------------- | ------ |
-| Response Type   | `GET`  |
+| Request Method  | `GET`  |
 | Response Format | `JSON` |
 
 **Example Request**
