@@ -1,8 +1,7 @@
 {
   "name": "twitter-tracking",
   "version": "1.0.0",
-  "description":
-    "API to track high-traffic events and perform certain queries on them",
+  "description": "API to track high-traffic events and perform certain queries on them",
   "main": "index.js",
   "engines": {
     "node": "8.1.1",
@@ -17,10 +16,10 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
-    "json2csv": "^4.0.0-alpha.0",
+    "json2csv": "^4.3.2",
     "lodash": "^4.17.5",
     "mongoose": "^5.0.6",
-    "nodemon": "^1.15.0",
+    "nodemon": "^1.18.9",
     "path-parser": "^4.2.0",
     "twi": "^0.1.4",
     "twit": "^2.2.9"
