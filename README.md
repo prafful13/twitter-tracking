@@ -52,7 +52,7 @@ Project is live at: https://mysterious-tor-32167.herokuapp.com/api/hightrafficev
 
 ---
 
-### 3. To find high trending events with respect to some place id
+### 3. Filter tweets based on various operations as defined below
 
 ### URL: /api/filter/:field
 
